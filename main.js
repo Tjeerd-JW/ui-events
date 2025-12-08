@@ -33,3 +33,113 @@ designLink.addEventListener('animationend', jumpHandler)
 
 // Stap 3: (Callback functie met) classList (.toggle(), .add(), etc.)
 // scaleLink.classList.toggle...
+
+
+// Frontend
+let frontendLink = document.querySelector('a[href="#frontend"]')
+
+frontendLink.addEventListener('click', frontendHandler);
+
+function frontendHandler() {
+  frontendLink.classList.toggle('frontend')
+
+}
+
+frontendLink.addEventListener('animationend', frontendHandler)
+
+// and
+
+let andLink = document.querySelector('a[href="#and"]')
+andLink.addEventListener('click', andHandler)
+
+function andHandler() {
+  andLink.classList.toggle('translate')
+}
+
+andLink.addEventListener('animationend', andHandler)
+
+// development
+let devLink = document.querySelector('a[href="#development"]')
+devLink.addEventListener('dblclick', devHandler)
+
+function devHandler() {
+  devLink.classList.toggle('shake')
+}
+
+devLink.addEventListener('animationend', devHandler)
+
+// focus
+let focusLink = document.querySelector('a[href="#sprint-5"]')
+focusLink.addEventListener('focusin', focusInHandler)
+
+focusLink.addEventListener('focusout', focusOutHandler)
+
+function focusInHandler() {
+  focusLink.classList.add('inFocus')
+}
+
+function focusOutHandler() {
+  focusLink.classList.remove('inFocus')
+  focusLink.classList.toggle('outFocus')
+}
+
+focusLink.addEventListener('animationend', focusOutHandler)
+
+// fix
+let fixLink = document.querySelector('a[href="#fix"]')
+fixLink.addEventListener('mouseover', fixOnHandler)
+
+fixLink.addEventListener('click', fixOutHandler)
+
+
+function fixOnHandler() {
+  fixLink.textContent = "Je fixt helemaal niets"
+}
+
+function fixOutHandler() {
+fixLink.textContent = "Fix"
+
+}
+
+// the
+let theLink = document.querySelector('a[href="#the"]')
+theLink.addEventListener('mouseout', theHandler)
+
+function theHandler() {
+  theLink.classList.toggle('rotate')
+}
+
+theLink.addEventListener('animationend', theHandler)
+
+// flow
+
+let flowLink = document.querySelector('a[href="#flow"]')
+flowLink.addEventListener('mousedown', flowDownHandler)
+flowLink.addEventListener('mouseup', flowUpHandler)
+flowLink.addEventListener('mouseout', flowUpHandler)
+flowLink.addEventListener('mouseleave', flowUpHandler)
+
+let intervallie;
+let progress = 0;
+
+function flowDownHandler() {
+  intervallie = setInterval(() => {
+    if (progress >= 1) {
+      return
+    }
+    progress = progress + 0.1
+    console.log(progress)
+    flowLink.style.setProperty('--progress', progress)
+  }, 100)
+}
+
+function flowUpHandler() {
+  console.log("up")
+  progress = 0
+  clearInterval(intervallie);
+  intervallie = null;
+  flowLink.style.setProperty('--progress', progress)
+
+}
+
+// User
