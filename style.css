@@ -272,9 +272,64 @@ a[href="#frontend"] {}
 a[href="#flow"] {
   transition: ease .2s;
   --progress: 0;
-    transform: rotate3d(2, 1, 0, calc(var(--progress) * 180deg));
+  transform: rotate3d(2, 1, 0, calc(var(--progress) * 180deg));
 }
 
 
 /* User */
+a[href="#user"] {
+  --user-color: transparant;
+  background-color: var(--user-color);
+  transition: ease-in-out;
+}
 
+.grow {
+  transform: scale(1.4);
+}
+
+/* interface */
+
+a[href="#interface"] {
+  background-color: red;
+  transition: linear .1s;
+  scale: var(--balloonSize);
+}
+
+@keyframes balloon-animation {
+  0% {}
+
+  100% {
+    transform: scale(3);
+  }
+
+
+}
+
+/* interaction */
+
+a[href="#interaction"] {
+  --x: 50%;
+  --y: 50%;
+  background: radial-gradient(circle at var(--x) var(--y),
+      white,
+      black 15%);
+}
+
+
+
+/* advanced */
+
+/* navigation */
+
+ul:last-child {}
+
+a[href="#navigation"] {}
+
+.navigation-move {
+  --x-position: 50%;
+  --y-position: 50%;
+  position: relative;
+  left: var(--x-position);
+  bottom: var(--y-position);
+  transition: ease-in-out .1s;
+}

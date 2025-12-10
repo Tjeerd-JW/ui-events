@@ -97,7 +97,7 @@ function fixOnHandler() {
 }
 
 function fixOutHandler() {
-fixLink.textContent = "Fix"
+  fixLink.textContent = "Fix"
 
 }
 
@@ -143,3 +143,102 @@ function flowUpHandler() {
 }
 
 // User
+
+let userLink = document.querySelector('a[href="#user"]')
+userLink.addEventListener('keyup', userHandler)
+
+function userHandler(e) {
+  if (e.key == 'f') {
+    userLink.style.setProperty('--user-color', 'red')
+  }
+  else if (e.key == 'h') {
+    userLink.style.setProperty('--user-color', 'blue')
+  }
+  else if (e.key == 'g') {
+    userLink.style.setProperty('--user-color', 'green')
+    userLink.classList.toggle('grow')
+  }
+  else if (e.key == 'r') {
+    userLink.style.setProperty('--user-color', 'transparant')
+  }
+}
+
+// interface
+
+let interfaceLink = document.querySelector('a[href="#interface"]')
+interfaceLink.addEventListener('mousedown', interfaceDownHandeler)
+interfaceLink.addEventListener('mouseup', interfaceUpHandeler)
+
+let balloonInterval;
+let balloonSize = 1;
+
+function interfaceDownHandeler(e) {
+  console.log('started balloon')
+  balloonInterval = setInterval(() => {
+    if (balloonSize >= 3) {
+      return
+    }
+    balloonSize = balloonSize + 0.1
+    console.log(balloonSize)
+    interfaceLink.style.setProperty('--balloonSize', balloonSize)
+  }, 100)
+}
+
+function interfaceUpHandeler(e) {
+  balloonSize = 1;
+  console.log('ended balloon')
+  clearInterval(balloonInterval);
+  balloonInterval = null;
+  interfaceLink.style.setProperty('--balloonSize', balloonSize)
+
+}
+
+// interaction
+
+let interactionLink = document.querySelector('a[href="#interaction"]')
+interactionLink.addEventListener('mousemove', interactionHandler)
+
+function interactionHandler(e) {
+  let mouseX = e.offsetX
+  let mouseY = e.offsetY
+  interactionLink.style.setProperty('--x', mouseX + 'px')
+  interactionLink.style.setProperty('--y', mouseY + 'px')
+
+}
+
+// advanced
+
+// let navigationLink = document.querySelector('a[href="#navigation"]')
+// let tweedeList = document.querySelector('ul:last-child')
+// navigationLink.addEventListener('click', soundHandler)
+// navigationLink.addEventListener('mousemove', mouseOnNav)
+// tweedeList.addEventListener('mousemove', navigationHandler)
+// tweedeList.addEventListener('mouseleave', navigationNoMove)
+
+// function soundHandler() {
+//   var audio = new Audio('audio.mp3');
+//   audio.play();
+// }
+
+// function navigationHandler(e) {
+//   console.log(e)
+//   navigationLink.classList.add('navigation-move');
+//   let mouseX = e.offsetX
+//   let mouseY = e.offsetY
+
+//   const elementRectangle = navigationLink.getBoundingClientRect()
+
+//   let elementWidth  = elementRectangle.width;
+//     let elementHeight  = elementRectangle.height;
+
+//     let xPercentage = mouseX / elementWidth;
+
+//     let yPercentage = mouseY / elementHeight;
+
+//   navigationLink.style.setProperty('--x-position', xPercentage)
+//   navigationLink.style.setProperty('--y-position',yPercentage)
+// }
+
+// function navigationNoMove() {
+//   navigationLink.classList.remove('navigation-move');
+// }
