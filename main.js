@@ -226,6 +226,27 @@ function interactionHandler(e) {
 
 // advanced
 
+// user flow
+let userFlowLink = document.querySelector('a[href="#user-flow"]')
+let allButtons = document.querySelectorAll('a:not([href="#user-flow"])')
+userFlowLink.addEventListener('mousemove', userFlowHandler)
+
+function userFlowHandler() {
+  console.log(allButtons)
+  allButtons.forEach(button =>{
+    button.classList.add('userFlowAnimatie')
+  })
+}
+
+eventLink.addEventListener('animationend', userFlowAnimationEnd)
+
+function userFlowAnimationEnd(){
+    allButtons.forEach(button =>{
+    button.classList.remove('userFlowAnimatie')
+  })
+}
+
+
 // let navigationLink = document.querySelector('a[href="#navigation"]')
 // let tweedeList = document.querySelector('ul:last-child')
 // navigationLink.addEventListener('click', soundHandler)

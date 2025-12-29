@@ -306,8 +306,8 @@ a[href="#interface"] {
 }
 
 /* events */
-a[href="#events"]{
-    transition: linear .1s;
+a[href="#events"] {
+  transition: linear .1s;
   font-size: clamp(5px, var(--font-size), 500px);
 }
 
@@ -325,6 +325,37 @@ a[href="#interaction"] {
 
 
 /* advanced */
+
+/* user flow */
+
+a[href="#user-flow"] {}
+
+.userFlowAnimatie {
+  animation: valAnimatie 5s;
+}
+
+@keyframes valAnimatie {
+
+  5%,
+  10%,
+  15%,
+  20% {
+    transform: translateY(2px) translateX(-2px);
+
+  }
+
+  2.5%,
+  7.5%,
+  12.5%,
+  17.5% {
+    transform: translateY(-2px) translateX(2px);
+  }
+
+  100% {
+    transform: translateY(100vh) rotate(90deg);
+    
+  }
+}
 
 /* navigation */
 
