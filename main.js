@@ -163,6 +163,24 @@ function userHandler(e) {
   }
 }
 
+// event
+let eventLink = document.querySelector('a[href="#events"]')
+window.addEventListener('wheel', scrollHandler)
+
+let fontSize = 32;
+
+function scrollHandler(e) {
+  console.log(e.deltaY)
+  if (e.deltaY >= 1) {
+    fontSize--
+  } else if (e.deltaY <= 1) {
+    fontSize++
+  }
+  eventLink.style.setProperty('--font-size', fontSize + 'px')
+
+}
+
+
 // interface
 
 let interfaceLink = document.querySelector('a[href="#interface"]')

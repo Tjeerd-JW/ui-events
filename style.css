@@ -305,6 +305,13 @@ a[href="#interface"] {
 
 }
 
+/* events */
+a[href="#events"]{
+    transition: linear .1s;
+  font-size: clamp(5px, var(--font-size), 500px);
+}
+
+
 /* interaction */
 
 a[href="#interaction"] {
