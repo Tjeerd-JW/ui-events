@@ -353,9 +353,41 @@ a[href="#user-flow"] {}
 
   100% {
     transform: translateY(100vh) rotate(90deg);
-    
+
   }
 }
+
+/* wireflow */
+
+a[href="#wireflow"] {
+  overflow: hidden;
+  position: relative;
+  --gradiant-position: 0%;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -200%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(90deg,
+        transparent 20%,
+        transparent 10%,
+        violet);
+    transition: 1s linear;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &::before {
+    opacity: 1;
+    transform: translatex(var(--gradiant-position));
+  }
+
+}
+
+
 
 /* navigation */
 

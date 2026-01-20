@@ -233,18 +233,52 @@ userFlowLink.addEventListener('mousemove', userFlowHandler)
 
 function userFlowHandler() {
   console.log(allButtons)
-  allButtons.forEach(button =>{
+  allButtons.forEach(button => {
     button.classList.add('userFlowAnimatie')
   })
 }
 
 eventLink.addEventListener('animationend', userFlowAnimationEnd)
 
-function userFlowAnimationEnd(){
-    allButtons.forEach(button =>{
+function userFlowAnimationEnd() {
+  allButtons.forEach(button => {
     button.classList.remove('userFlowAnimatie')
   })
 }
+
+// wireflow
+
+let wireflowLink = document.querySelector('a[href="#wireflow"]')
+
+// wireflowLink.addEventListener('click', wireflowHandler)
+wireflowLink.addEventListener('pointerup', wireflowUpHandler)
+wireflowLink.addEventListener('pointerdown', wireflowDownHandler)
+
+
+let wireflowInterval;
+let wireflowProgress = 0;
+
+function wireflowUpHandler() {
+  console.log("up")
+  wireflowProgress = 0
+  clearInterval(wireflowInterval);
+  wireflowInterval = null;
+  wireflowLink.style.setProperty('--gradiant-position', wireflowProgress + '%')
+
+}
+
+
+function wireflowDownHandler() {
+  wireflowInterval = setInterval(() => {
+    if (wireflowProgress >= 50) {
+      return
+    }
+    wireflowProgress = wireflowProgress + 2
+    console.log(wireflowProgress)
+    wireflowLink.style.setProperty('--gradiant-position', wireflowProgress + '%')
+  }, 100)
+}
+
 
 
 // let navigationLink = document.querySelector('a[href="#navigation"]')
