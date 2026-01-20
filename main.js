@@ -321,18 +321,25 @@ window.addEventListener('deviceorientation', orientationHandler)
 function motionHandler(e) {
   console.log('lekker schudden', e)
   console.log(e.accelerationIncludingGravity.y)
-  if (e.accelerationIncludingGravity.y >= 20)
-    everyLink.forEach(btn => btn.classList.toggle('motion-class'));
+  if (e.accelerationIncludingGravity.y >= 20) {
+    everyLink.forEach(btn => btn.classList.add('motion-class'));
+  }
+
+  if (e.accelerationIncludingGravity.x >= 20) {
+    everyLink.forEach(btn => btn.classList.remove('motion-class'));
+  }
 }
 
 function orientationHandler(e) {
   console.log('lekker rollen')
   if (e.gamma > 70) {
-    everyLink.forEach(btn => btn.classList.toggle('orientation-class'));
+    // ene kant class erop
+    everyLink.forEach(btn => btn.classList.add('orientation-class'));
 
   }
   if (e.gamma < -70) {
-    everyLink.forEach(btn => btn.classList.toggle('orientation-class'));
+    // andere kant class er weer af
+    everyLink.forEach(btn => btn.classList.remove('orientation-class'));
 
   } else {
     console.log('portret modus')
