@@ -318,15 +318,26 @@ let everyLink = document.querySelectorAll('a')
 window.addEventListener('devicemotion', motionHandler)
 window.addEventListener('deviceorientation', orientationHandler)
 
-function motionHandler() {
-  console.log('lekker schudden')
-  everyLink.forEach(btn => btn.classList.toggle('motion-class'));
+function motionHandler(e) {
+  console.log('lekker schudden', e)
+  // everyLink.forEach(btn => btn.classList.toggle('motion-class'));
 
 }
 
-function orientationHandler() {
-  console.log('lekker rollen')
+function orientationHandler(e) {
+  console.log('lekker rollen', e.gamma)
+  if (e.gamma > 70) {
   everyLink.forEach(btn => btn.classList.toggle('orientation-class'));
+
+  }
+  if (e.gamma < -70) {
+  everyLink.forEach(btn => btn.classList.toggle('orientation-class'));
+
+  } else{
+    console.log('portret modus')
+  }
+
+
 }
 
 
