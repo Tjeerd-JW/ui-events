@@ -402,6 +402,66 @@ a[href="#wireflow"] {
   pointer-events: none;
 }
 
+/* labels */
+.motion-class {
+  animation: motion-animation 5s;
+}
+
+
+.orientation-class {
+  animation: orientation-animation 5s;
+
+}
+
+
+@keyframes motion-animation {
+
+  0%,
+  100% {
+    transform: translateX(0) translateY(0);
+  }
+
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-15px) translateY(10px);
+  }
+
+  15%,
+  45%,
+  55%,
+  85% {
+    transform: translateX(15px) translateY(10px);
+  }
+
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(15px) translateY(-10px);
+  }
+
+}
+
+@keyframes orientation-animation {
+
+  0%,
+  70% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(360deg);
+
+  }
+  100% {
+    transform: rotate(360deg);
+
+  }
+}
+
 /* navigation */
 
 ul:last-child {}

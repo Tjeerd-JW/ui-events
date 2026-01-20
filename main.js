@@ -307,8 +307,30 @@ document.addEventListener('keydown', feedforwardHandler)
 
 function feedforwardHandler(e) {
   if (feedbackHover && e.key == 'Escape') {
-    allButtons2.forEach(btn => btn.classList.toggle('greyed-out'));  }
+    allButtons2.forEach(btn => btn.classList.toggle('greyed-out'));
+  }
 }
+
+// labels
+
+let everyLink = document.querySelectorAll('a')
+
+document.addEventListener('devicemotion', motionHandler)
+document.addEventListener('deviceorientation', orientationHandler)
+
+function motionHandler() {
+  console.log('lekker schudden')
+  everyLink.forEach(btn => btn.classList.toggle('motion-class'));
+
+}
+
+function orientationHandler() {
+  console.log('lekker rollen')
+  everyLink.forEach(btn => btn.classList.toggle('orientation-class'));
+}
+
+
+
 
 
 // let navigationLink = document.querySelector('a[href="#navigation"]')
