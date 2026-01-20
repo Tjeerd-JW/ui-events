@@ -289,15 +289,30 @@ let feedbackCounter = 0
 
 function feedbackHandler() {
   feedbackCounter++
-  if (feedbackCounter >= 10){
+  if (feedbackCounter >= 10) {
     feedbackLink.classList.add('ten-clicks')
   }
 }
 
+// feedforward
+
+let feedforwardLink = document.querySelector('a[href="#feedforward"]')
+let allButtons2 = document.querySelectorAll('a:not([href="#feedforward"])')
+let feedbackHover = false;
+
+feedforwardLink.addEventListener('pointerenter', () => feedbackHover = true)
+feedforwardLink.addEventListener('pointerleave', () => feedbackHover = false)
+
+document.addEventListener('keydown', feedforwardHandler)
+
+function feedforwardHandler(e) {
+  if (feedbackHover && e.key == 'Escape') {
+    allButtons2.forEach(btn => btn.classList.toggle('greyed-out'));  }
+}
 
 
 // let navigationLink = document.querySelector('a[href="#navigation"]')
-// let tweedeList = document.querySelector('ul:last-child')
+// let tweedeList = documegnt.querySelector('ul:last-child')
 // navigationLink.addEventListener('click', soundHandler)
 // navigationLink.addEventListener('mousemove', mouseOnNav)
 // tweedeList.addEventListener('mousemove', navigationHandler)

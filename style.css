@@ -389,11 +389,18 @@ a[href="#wireflow"] {
 
 /* feedback */
 
-.ten-clicks{
+.ten-clicks {
   background-color: red;
 }
 
+/* feedforward */
 
+.greyed-out {
+  background-color: gray !important;
+  text-decoration: line-through;
+  color: black;
+  pointer-events: none;
+}
 
 /* navigation */
 
