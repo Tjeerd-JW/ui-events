@@ -279,6 +279,21 @@ function wireflowDownHandler() {
   }, 100)
 }
 
+// feedback
+
+let feedbackLink = document.querySelector('a[href="#feedback"]')
+
+feedbackLink.addEventListener('click', feedbackHandler)
+
+let feedbackCounter = 0
+
+function feedbackHandler() {
+  feedbackCounter++
+  if (feedbackCounter >= 10){
+    feedbackLink.classList.add('ten-clicks')
+  }
+}
+
 
 
 // let navigationLink = document.querySelector('a[href="#navigation"]')
