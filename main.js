@@ -315,8 +315,8 @@ function feedforwardHandler(e) {
 
 let everyLink = document.querySelectorAll('a')
 
-document.addEventListener('devicemotion', motionHandler)
-document.addEventListener('deviceorientation', orientationHandler)
+window.addEventListener('devicemotion', motionHandler)
+window.addEventListener('deviceorientation', orientationHandler)
 
 function motionHandler() {
   console.log('lekker schudden')
