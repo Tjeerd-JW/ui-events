@@ -348,6 +348,43 @@ function orientationHandler(e) {
 
 }
 
+// states
+
+let statesLink = document.querySelector('a[href="#states"]')
+
+statesLink.addEventListener('pointerdown', statesDownHandler)
+statesLink.addEventListener('pointerup', statesUpHandler)
+window.addEventListener('mousemove', statesMoveHandler)
+
+let statesMove = false
+
+function statesDownHandler(e) {
+  console.log(e)
+  statesMove ^= true
+  statesLink.classList.add('states-clicked')
+  statesLink.classList.toggle('states-moving')
+  statesLink.removeAttribute('href');
+}
+
+function statesUpHandler() {
+  statesMove ^= true
+
+  statesLink.classList.toggle('states-moving')
+
+}
+
+
+function statesMoveHandler(e) {
+  if (statesMove == true) {
+    let posX = e.clientX
+    let posY = e.clientY
+    posX = posX - 30
+    posY = posY - 30
+    statesLink.style.setProperty('--x-states', posX + 'px')
+    statesLink.style.setProperty('--y-states', posY + 'px')
+
+  }
+}
 
 
 

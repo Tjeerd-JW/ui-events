@@ -456,11 +456,32 @@ a[href="#wireflow"] {
     transform: rotate(360deg);
 
   }
+
   100% {
     transform: rotate(360deg);
 
   }
 }
+
+/* states */
+a[href="#states"] {
+  cursor: grab;
+}
+
+.states-clicked{
+  position: absolute;
+    top: var(--y-states);
+  left: var(--x-states);
+  user-select: none;
+  cursor: grab;
+}
+
+.states-moving {
+  --y-states: 0;
+  --x-states: 0;
+  cursor: grabbing;
+}
+
 
 /* navigation */
 
