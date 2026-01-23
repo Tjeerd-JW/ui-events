@@ -408,10 +408,41 @@ function navigationHandler(e) {
     navigationLink.style.setProperty('--x-nav', diffX + 'px')
     navigationLink.style.setProperty('--y-nav', diffY + 'px')
   }
-  else{
-     navigationLink.style.setProperty('--x-nav', 0 + 'px')
+  else {
+    navigationLink.style.setProperty('--x-nav', 0 + 'px')
     navigationLink.style.setProperty('--y-nav', 0 + 'px')
   }
 
 }
 
+// code
+
+let codeLink = document.querySelector('a[href="#code"]')
+codeLink.addEventListener('click', order66)
+window.addEventListener('mousemove', codeHandler)
+
+function codeHandler(e) {
+  let positionCode = codeLink.getBoundingClientRect()
+  positionCode.x = positionCode.x + 50
+
+  let diffX = e.clientX - positionCode.x
+  let diffY = e.clientY - positionCode.y
+
+  if (diffX < 200 &&
+    diffX > -200 &&
+    diffY < 200 &&
+    diffY > -200) {
+
+    codeLink.style.setProperty('--x-code', -diffX + 'px')
+    codeLink.style.setProperty('--y-code', -diffY + 'px')
+  }
+  else {
+    codeLink.style.setProperty('--x-code', 0 + 'px')
+    codeLink.style.setProperty('--y-code', 0 + 'px')
+  }
+
+}
+
+function order66() {
+  window.location.assign('https://www.youtube.com/shorts/GcTnB_Nl6w4'); 
+}

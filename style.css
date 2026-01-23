@@ -492,3 +492,13 @@ a[href="#navigation"] {
   transition: ease-in-out .3s;
   transform: translateY(var(--y-nav)) translateX(var(--x-nav));
 }
+
+/* code */
+
+a[href="#code"] {
+  --x-code: 0;
+  --y-code: 0;
+
+  transition: linear .1s;
+  transform: translateY(var(--y-code)) translateX(var(--x-code));
+}
