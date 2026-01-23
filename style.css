@@ -468,9 +468,9 @@ a[href="#states"] {
   cursor: grab;
 }
 
-.states-clicked{
+.states-clicked {
   position: absolute;
-    top: var(--y-states);
+  top: var(--y-states);
   left: var(--x-states);
   user-select: none;
   cursor: grab;
@@ -485,15 +485,10 @@ a[href="#states"] {
 
 /* navigation */
 
-ul:last-child {}
+a[href="#navigation"] {
+  --x-nav: 0;
+  --y-nav: 0;
 
-a[href="#navigation"] {}
-
-.navigation-move {
-  --x-position: 50%;
-  --y-position: 50%;
-  position: relative;
-  left: var(--x-position);
-  bottom: var(--y-position);
-  transition: ease-in-out .1s;
+  transition: ease-in-out .3s;
+  transform: translateY(var(--y-nav)) translateX(var(--x-nav));
 }

@@ -359,7 +359,6 @@ window.addEventListener('mousemove', statesMoveHandler)
 let statesMove = false
 
 function statesDownHandler(e) {
-  console.log(e)
   statesMove ^= true
   statesLink.classList.add('states-clicked')
   statesLink.classList.toggle('states-moving')
@@ -368,9 +367,7 @@ function statesDownHandler(e) {
 
 function statesUpHandler() {
   statesMove ^= true
-
   statesLink.classList.toggle('states-moving')
-
 }
 
 
@@ -382,44 +379,39 @@ function statesMoveHandler(e) {
     posY = posY - 30
     statesLink.style.setProperty('--x-states', posX + 'px')
     statesLink.style.setProperty('--y-states', posY + 'px')
-
   }
 }
 
 
+// navigation
 
+let navigationLink = document.querySelector('a[href="#navigation"]')
+navigationLink.addEventListener('click', soundHandler)
+window.addEventListener('mousemove', navigationHandler)
 
-// let navigationLink = document.querySelector('a[href="#navigation"]')
-// let tweedeList = documegnt.querySelector('ul:last-child')
-// navigationLink.addEventListener('click', soundHandler)
-// navigationLink.addEventListener('mousemove', mouseOnNav)
-// tweedeList.addEventListener('mousemove', navigationHandler)
-// tweedeList.addEventListener('mouseleave', navigationNoMove)
+function soundHandler() {
+  var audio = new Audio('audio.mp3');
+  audio.play();
+}
 
-// function soundHandler() {
-//   var audio = new Audio('audio.mp3');
-//   audio.play();
-// }
+function navigationHandler(e) {
+  let positionNav = navigationLink.getBoundingClientRect()
+  positionNav.x = positionNav.x + 100
 
-// function navigationHandler(e) {
-//   console.log(e)
-//   navigationLink.classList.add('navigation-move');
-//   let mouseX = e.offsetX
-//   let mouseY = e.offsetY
+  let diffX = e.clientX - positionNav.x
+  let diffY = e.clientY - positionNav.y
 
-//   const elementRectangle = navigationLink.getBoundingClientRect()
+  if (diffX < 200 &&
+    diffX > -200 &&
+    diffY < 200 &&
+    diffY > -200) {
+    navigationLink.style.setProperty('--x-nav', diffX + 'px')
+    navigationLink.style.setProperty('--y-nav', diffY + 'px')
+  }
+  else{
+     navigationLink.style.setProperty('--x-nav', 0 + 'px')
+    navigationLink.style.setProperty('--y-nav', 0 + 'px')
+  }
 
-//   let elementWidth  = elementRectangle.width;
-//     let elementHeight  = elementRectangle.height;
+}
 
-//     let xPercentage = mouseX / elementWidth;
-
-//     let yPercentage = mouseY / elementHeight;
-
-//   navigationLink.style.setProperty('--x-position', xPercentage)
-//   navigationLink.style.setProperty('--y-position',yPercentage)
-// }
-
-// function navigationNoMove() {
-//   navigationLink.classList.remove('navigation-move');
-// }
